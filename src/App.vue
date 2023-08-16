@@ -1,93 +1,75 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-
-import { ref } from "vue"
-
-const name = ref("Blessed")
-
-console.log(name);
-console.log(name.value);
-
-</script>
-
 <template>
+ <div class="container">
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+   <h1>Quizes</h1>
+   <input type="text" placeholder="...">
   </header>
 
-  <RouterView />
+  <div class="options-container">
+   <div class="card">
+    <img src="https://i.ytimg.com/vi/Kp2bYWRQylk/maxresdefault.jpg" alt="">
+    <div class="card-text">
+     <h2>Math</h2>
+     <p>15 questions</p>
+    </div>
+   </div>
+  </div>
+ </div>
 </template>
 
 <style scoped>
+.container {
+ max-width: 1000px;
+ margin: 0 auto;
+}
+
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+ margin-bottom: 10px;
+ margin-top: 30px;
+ display: flex;
+ align-items: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+header h1 {
+ font-weight: bold;
+ margin-right: 30px;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+header input {
+ border: none;
+ background-color: rgba(128, 128, 128, 0.1);
+ padding: 10px;
+ border-radius: 5px;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.options-container {
+ display: flex;
+ flex-wrap: wrap;
+ margin-top: 40px;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+/* Card */
+.card {
+ width: 310px;
+ overflow: hidden;
+ border-radius: 2%;
+ box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+ margin-bottom: 35px;
+ margin-right: 20px;
+ cursor: pointer;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.card img {
+ width: 100%;
+ height: 190px;
+ margin: 0;
 }
 
-nav a:first-of-type {
-  border: 0;
+.card .card-text {
+ padding: 0 5px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.card .card-text h2 {
+ font-weight: bold;
 }
 </style>
