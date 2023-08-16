@@ -26,6 +26,17 @@ const currentQuestionIndex = ref(0);
 // computed -> compute a value based off on another value i.e. compute questionStatus based off the currentQuestionIndex.value
 const questionStatus = computed(() => `${currentQuestionIndex.value}/${quiz.questions.length}`)
 const barPercentage = computed(() => `${currentQuestionIndex.value / quiz.questions.length * 100}%`)
+
+const numberOfCorrectAnswers = ref(0)
+
+// listen to the emitted event
+const onOptionSelected = (isCorrect) => {
+	if (isCorrect) {
+		numberOfCorrectAnswers.value++;
+	}
+
+	currentQuestionIndex.value++
+}
 </script>
 
 <template>
@@ -33,7 +44,7 @@ const barPercentage = computed(() => `${currentQuestionIndex.value / quiz.questi
 		<QuizHeader :questionStatus="questionStatus" :barPercentage="barPercentage" />
 
 		<div>
-			<Question :question="quiz.questions[currentQuestionIndex]" />
+			<Question :question="quiz.questions[currentQuestionIndex]" @selectOption="onOptionSelected" />
 		</div>
 
 		<button @click="currentQuestionIndex++">Next Question</button>
