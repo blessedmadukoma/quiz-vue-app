@@ -21,7 +21,7 @@ watch(search, () => {
   </header>
 
   <div class="options-container">
-   <Card v-for="quiz in quizes" :key="quiz.id" />
+   <Card v-for="quiz in quizes" :key="quiz.id" :quiz="quiz" />
 
    <!-- <div class="card" v-for="quiz in quizes" :key="quiz.id">
     <img :src="quiz.img" alt="">
